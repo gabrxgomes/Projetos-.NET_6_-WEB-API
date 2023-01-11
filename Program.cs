@@ -31,6 +31,17 @@ app.MapGet("/AddHeader", (HttpResponse response) => { // aqui temos uma função
     
 });
 //------------------------------------------------------------------------
+//agora criamos o nosso end point junto com a função lambda, como ja foi feito anteriormente -2-
+
+app.MapPost("/cadastrarproduct", (Product product) => { //nosso endpoint aqui leva como metodo o POST pois de acordo com a logica do crud esse endpoint 
+                                                        //acessa o metodo post para salvar informações em um banco de dados.  //  O " - " É PRA CONCATENAR O CODIGO COM O NOME DO PRODUTO
+    return product.Code + " - " + product.Name;
+});
+
+// ALERTA !!!! PARA VOCE CADASTAR O PRODUTO COMO TESTE VC DEVE IR NO SEU PROGRAMA DE CLIENT NO CASO O POSTMAN
+//PROCURAR PELO ENDEREÇO DA REQUISIÇÃO COLOCAR NO BODY - RAW E ESCREVER MANUALMENTE O NOSSO CADASTRO "{ "Code": "1", "Name": "HD SSD"}"
+//PASSAMOS INFORMAÇÃO ATRAVÉS DO CORPO
+
 
 
 //------------------------------------------------------------------------
@@ -39,8 +50,9 @@ app.Run();
 
 
 
- //AGORA VAMOS CRIAR UM OBJETO PARA PASSAR SEUS PARAMETROS DENTRO DE UMA REQUISIÇÃO POST
- public class Product {
+ //AGORA VAMOS CRIAR UM OBJETO PARA PASSAR SEUS PARAMETROS DENTRO DE UMA REQUISIÇÃO POST -1-
+ public class Product { // temos a nossa classe do tipo "Produto"  e os atributos da nossa classe são strings o codigo do produto 
+                        //e o nome do produto, e esses atributos estão atrelados aos metodos get e set ou seja eles podem variar 
 
     public string Code { get; set; } // podemos escrever prop e dar um tab para escrever o codigo defaut
                                         // podemos alterar o valor do metodo
@@ -48,3 +60,5 @@ app.Run();
     public string Name { get; set; } // esses ssão os metodos que retornarão valores 
 
  }
+
+ //-----------------------------------------------------------------------------------------
