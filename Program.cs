@@ -1,4 +1,4 @@
-
+using Microsoft.AspNetCore.Mvc;
 // as duas primeiras linhas criam o nosso host que é o cara que vai ficar escutando tudo que está sendo pedido
 //escutando as requisições
 
@@ -48,11 +48,18 @@ app.MapPost("/cadastrarproduct", (Product product) => { //nosso endpoint aqui le
 
 //api.app.com/users?datastart={date}&datastart={date}&dateend={date} - aqui estamos extraindo um relatorio de informações
 //pela url mas podemos fazer o mesmo pela rota como abaixo !
+ app.MapGet("/getproduct", ([FromQuery] string dateStart, [FromQuery] string dateEnd) => {
+    return dateStart + " - " + dateEnd;
+ });
+//-------------------------------------------------------------------------------------------------
 
-//api.app.com/user/{code}
+
+//api.app.com/user/{code} //atraves da rota é como se ele pertencesse ao endpoint
 
 
-
+ app.MapGet("/getproduct/{code}", (string code) => {
+    return code; //retornando pela rota
+ });
 //------------------------------------------------------------------------
 app.Run();
  // criamos um builder do tipo web e no final o rodamos
