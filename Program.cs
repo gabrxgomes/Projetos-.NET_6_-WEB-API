@@ -41,6 +41,15 @@ app.MapPost("/cadastrarproduct", (Product product) => { //nosso endpoint aqui le
 // ALERTA !!!! PARA VOCE CADASTAR O PRODUTO COMO TESTE VC DEVE IR NO SEU PROGRAMA DE CLIENT NO CASO O POSTMAN
 //PROCURAR PELO ENDEREÇO DA REQUISIÇÃO COLOCAR NO BODY - RAW E ESCREVER MANUALMENTE O NOSSO CADASTRO "{ "Code": "1", "Name": "HD SSD"}"
 //PASSAMOS INFORMAÇÃO ATRAVÉS DO CORPO
+//--------------------------------------------------------------------------------
+
+//também podemos passar informações atraves da url, lembrando sempre de que informações mais sigilosas geralmente nao usam esse metodo
+//de envio, EXS
+
+//api.app.com/users?datastart={date}&datastart={date}&dateend={date} - aqui estamos extraindo um relatorio de informações
+//pela url mas podemos fazer o mesmo pela rota como abaixo !
+
+//api.app.com/user/{code}
 
 
 
